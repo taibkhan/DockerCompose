@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - taibvol:/data/db
+    networks:
+      - taibnet
+   mongo_express:
+     image: mongo-express
+     volumes:
+       - taibvol:/data/ui
+     networks:
+       - taibnet
+ 
+volumes:
+  taibvol:
+    external: true
+networks:
+  taibnet:
+    external: true  
